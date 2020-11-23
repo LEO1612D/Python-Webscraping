@@ -1,7 +1,10 @@
 from bs4 import BeautifulSoup
 import requests
 
-html_text = requests.get('https://in.linkedin.com/jobs/search?keywords=Python%20Developer&location=Vadodara%2C%20Gujarat%2C%20India&geoId=106728703&trk=public_jobs_jobs-search-bar_search-submit&redirect=false&position=1&pageNum=0').text
+job_title = input('Please enter job title').split()
+
+
+html_text = requests.get('https://in.linkedin.com/jobs/search?keywords='+job_title[0]+'+%20+'+job_title[1]+'+&location=Vadodara%2C%20Gujarat%2C%20India&geoId=106728703&trk=public_jobs_jobs-search-bar_search-submit&redirect=false&position=1&pageNum=0').text
 
 soup = BeautifulSoup(html_text,'lxml')
 
